@@ -3,7 +3,7 @@ An E-Store based around the IP, Animal Crossing. Users can sign up, log in, and 
 
 A group project done for a web development class. 
 
-Hosted on Repl.it:
+Hosted on Replit:
 https://replit.com/@SeverinLight1/vibeEmporium
 
 
