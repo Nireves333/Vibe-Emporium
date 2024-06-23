@@ -1,0 +1,269 @@
+body {
+  background-image: url("/assets/wallpaper.png");
+  text-align: center;
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 20px;
+  color: rgba(60, 48, 42);
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-family: 'Grandstander', cursive;
+  font-size: 70px;
+  color: #4d3b33;
+}
+
+h2 {
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Grandstander', cursive;
+  font-size: 54px;
+}
+
+.page-title {
+  background-color: rgba(175, 192, 157, 0.8);
+  border-radius: 30px;
+  margin: 40px;
+  padding: 10px;
+}
+
+h3, h4 {
+  margin: 10px;
+  font-weight: bold;
+}
+
+/* Styles for hyperlinks */
+a {
+  color: rgba(60, 48, 42);
+}
+a:hover {
+  text-decoration: underline;
+  color: #505747;
+}
+
+/* Styles for navigation and menus */
+.nav {
+  background: linear-gradient(to bottom, rgba(175, 192, 157), transparent);
+  padding-top: 5px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+}
+.nav-menu {
+  background-color: rgba(170, 135, 120, 0.8);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+nav img {
+  width: 30px;
+  height: 30px; 
+  margin: 10px;
+}
+.nav-item {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.nav-item a {
+  color: rgba(60, 48, 42); 
+}
+.nav-item:hover a {
+  color: #505747; 
+}
+.dropdown-menu {
+  width: 300px;
+  padding: 20px;
+  border: none;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* General container */
+.container {
+  background-color: rgba(170, 135, 120, 0.8);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 500px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+/* Styles for homepage */
+.container-greeting {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.container-greeting img {
+  height: 300px;
+  margin: 30px;
+}
+
+.greeting {
+  animation: float 5s ease-in-out infinite;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: rgba(175, 192, 157, 0.8);
+  border-radius: 20px;
+  margin: 20px;
+  padding: 30px;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+/* Styles for account page */
+.container-account {
+  margin-right: 80px;
+  margin-left: 80px;
+  display: flex;
+}
+
+/* Styles for furniture and villager pages */
+.container-cards {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(170, 135, 120, 0.8);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  width: 220px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card img {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 120px;
+}
+.card:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* Styles for cart page */
+.container-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.card-cart {
+  border-radius: 10px;
+  background-color: rgba(170, 135, 120, 0.8);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-cart:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+}
+.column {
+  padding: 10px;
+}
+.qty {
+  width: 150px;
+}
+.totals {
+  position: sticky;
+  top: 80px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(175, 192, 157, 0.8);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+.totals:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8);
+}
+.container-totals {
+  display: flex;
+  flex-direction: row;
+}
+.column-totals-1 {
+  text-align: left;
+}
+.column-totals-2 {
+  text-align: right;
+}
+
+/* Styles for order history */
+.container-orders {
+  margin: 60px;
+}
+
+/* Styles for footer */
+footer {
+  background: linear-gradient(to bottom, transparent, rgba(175, 192, 157));
+  padding: 5px;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+footer img {
+  margin-right: 40px;
+  width: 80px;
+  height: 80px;
+}
+
+/* Styles for popup message */
+#custom-popup {
+  display: none;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 10;
+}
+
+/* Styles for popup validation messages */
+.popup-valid {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 10;
+}
+.popup-valid img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.popup-valid button {
+  margin-left: 40px;
+}

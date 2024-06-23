@@ -1,0 +1,45 @@
+<nav class="nav-menu">
+
+  <!-- Filter by villager species -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Villagers by Species
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% speciesList.forEach((species) => { %>
+        <li><a href="/filteredVillagers?species=<%= species %>">
+          <%= species %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Filter by villager Personality -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Villagers by Personality
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% personalities.forEach((personality) => { %>
+        <li><a href="/filteredVillagers?personality=<%= personality %>">
+          <%= personality %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Filter by villager zodiac sign -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Villagers by Sign
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% signs.forEach((sign) => { %>
+        <li><a href="/filteredVillagers?sign=<%= sign %>">
+          <%= sign %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+</nav>

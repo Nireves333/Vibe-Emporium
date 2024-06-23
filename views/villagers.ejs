@@ -1,0 +1,88 @@
+<%- include('partials/header.ejs') %>
+  
+<body class="villager-page">
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+  <%- include('partials/menuVillagers.ejs') %>
+    
+  <div class="page-title">
+    <h2>Available Villagers</h2>
+  </div>
+      
+  <!-- Display villagers -->
+  <div class="container-cards">
+    <% for (let villager of villagers) { %> 
+    <div class="card">
+      
+        <img src="<%= villager.imageUrl %>" alt="<%= villager.name %>" class="card-img-top">
+      
+        <div class="card-body">
+          <h3 class="card-title"><%= villager.name %></h3>
+          <br><p class="card-text">
+            <strong>Species: </strong>
+            <%= villager.species %>
+          </p>
+          <p class="card-text">
+            <strong>Personality: </strong>
+            <%= villager.personality %>
+          </p>
+          <p class="card-text">
+            <strong>Sign: </strong>
+            <%= villager.sign %>
+          </p>
+          <p class="card-text">
+            <strong>Quote: </strong>
+            <%= villager.quote %>
+          </p>
+          <p class="card-text">
+            <strong>Phrase: </strong>
+            <%= villager.phrase %>
+          </p>
+        </div>
+      
+    </div>
+  <% } %>
+  </div>
+
+  <!-- Pagination -->
+  <nav class="navbar justify-content-center">
+    <ul class="pagination">
+      
+      <% if (currentPage === 1) { %>
+        <li class="page-item disabled">
+          <span class="page-link">&laquo;</span>
+        </li>
+      <% } else { %>
+        <li class="page-item">
+          <a class="page-link" href="/villagers?page=<%= currentPage - 1 %>" aria-label="Previous">&laquo;</a>
+        </li>
+      <% } %>
+      
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === currentPage) { %>
+          <li class="page-item active">
+            <span class="page-link"><%= i %></span>
+          </li>
+        <% } else { %>
+          <li class="page-item">
+            <a class="page-link" href="/villagers?page=<%= i %>"><%= i %></a>
+          </li>
+        <% } %>
+      <% } %>
+
+      <% if (currentPage === totalPages) { %>
+        <li class="page-item disabled">
+          <span class="page-link">&raquo;</span>
+        </li>
+      <% } else { %>
+        <li class="page-item">
+          <a class="page-link" href="/villagers?page=<%= currentPage + 1 %>" aria-label="Next">&raquo;</span>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+          
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

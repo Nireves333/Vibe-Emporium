@@ -1,0 +1,106 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2>Cart</h2>
+  </div>
+    
+  <div id="custom-popup"></div>
+
+  <!-- Message if no items in the cart -->
+  <% if (cart.length === 0) { %>
+    <h3>Your cart is empty</h3><br><br>
+  <% } else { %>
+
+    <div class="container-cart">
+      
+      <div class="column-cart">
+        <% cart.forEach((item, index) => { %>
+          <!-- Start of each card -->
+        <div class="card-cart">
+            
+          <!-- 1st column -->
+          <div class="column">
+            <!-- Card image -->
+            <img src="<%= item.img %>" alt="<%= item.name %>" class="img-fluid">
+          </div>
+
+          <!-- 2nd column -->
+          <div class="column">
+            <!-- Card title -->
+            <h3 class="card-title"><strong>
+              <%= item.name %>
+            </strong></h3>
+            <!-- SKU of the item -->
+            <p class="card-text">SKU <%= item.sku %></p>
+            <!-- Price of the item -->
+            <h4 class="item-total">$<%= item.price %>.00</h4>
+          </div>
+
+          <!-- 3rd column -->
+          <div class="column">
+            <!-- Quantity of the item -->
+            <div class="input-group input-group-lg qty">
+              <button class="btn btn-secondary decBtn" 
+                data-target="quantity<%= index %>">
+                -</button>
+              <input type="text" class="form-control" 
+                id="quantity<%= index %>" 
+                value="<%= item.quantity %>"
+                data-sku="<%= item.sku %>" 
+                data-price="<%= item.price %>" readonly>
+              <button class="btn btn-secondary incBtn" 
+                data-target="quantity<%= index %>">
+                +</button>
+            </div>
+            <br> 
+            <!-- Remove button -->
+            <button class=" btn btn-light btn-lg remove-btn" 
+              data-sku="<%= item.sku %>">
+              Remove
+            </button>
+          </div>
+            
+          <!-- 4th column -->
+          <div class="column">
+            <h3>$<span id="subtotalItem<%= item.sku %>"><%= (item.quantity * item.price).toFixed(2) %></span></h3>
+          </div>
+          
+        </div>
+        <% }); %>
+      </div>
+
+      <!-- Order summary and totals -->
+      <div class="column-cart totals">
+        <h3 style="text-decoration: underline;">
+          Order Summary
+        </h3><br>
+        
+        <div class="container-totals">
+          <div class="column-totals-1">
+            <h4>Subtotal:</h4>
+            <h4>Tax:</h4>
+            <hr><h3>Total:</h3>
+          </div>
+          <div class="column-totals-2">
+            <h4>$<span id="subtotal">0</span></h4>
+            <h4>$<span id="tax">0</span><br></h4>
+            <hr><h3>$<span id="total"></span></h3>
+          </div>
+        </div>
+    
+        <br>
+        <button class="btn btn-light btn-lg checkout-btn">
+          Checkout
+        </button>
+      </div>
+          
+    </div>
+  <% } %>
+    
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

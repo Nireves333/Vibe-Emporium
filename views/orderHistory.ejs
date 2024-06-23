@@ -1,0 +1,67 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2>Order History</h2>
+  </div>
+
+  <!-- Error message if no orders exist -->
+  <% if (typeof orderError != 'undefined' && orderError) { %>
+    <h3 class="error">No orders found</h3>
+  <% } else { %>
+
+<div class="container-orders">
+<table class="table table-secondary table-striped table-hover table-borderless">
+    <!-- Table Heading -->
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ORDER ID</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TOTAL</th>
+        <th scope="col">ITEMS</th>
+      </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody>
+      <% formattedOrders.forEach(order => { %>
+        <tr>
+          <td class="align-middle"><%= order.orderID %></td>
+          <td class="align-middle"><%= order.date %></td>
+          <td class="align-middle"><%= order.total %></td>
+          <td>
+            <table class="table mb-0 table-sm table-striped table-hover table-bordered">
+              <!-- Table Heading for Items -->
+              <thead>
+                <tr>
+                  <th scope="col">SKU</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <!-- Iterate through ordered items -->
+                <% order.items.forEach(item => { %>
+                  <tr>
+                    <td><%= item.SKU %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.qty %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+      </div>
+    <% } %>
+      
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

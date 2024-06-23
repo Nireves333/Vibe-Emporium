@@ -1,0 +1,39 @@
+<nav class="nav-menu">
+
+  <!-- Furniture categories link -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Furniture Categories
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% concepts.forEach((concept) => { %>
+        <li><a href="/furniture/<%= concept %>"><%= concept %></a></li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Furniture series link -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Furniture Series
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% series.forEach((oSeries) => { %>
+        <li><a href="/furniture/<%= oSeries %>"><%= oSeries %></a></li>
+      <% }); %>
+    </ul>
+  </div>
+
+  <!-- Furniture sets link -->
+  <div class="nav-item dropdown">
+    <h4><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      Furniture Sets
+    </a></h4>
+    <ul class="dropdown-menu">
+      <% sets.forEach((set) => { %>
+        <li><a href="/furniture/<%= set %>"><%= set %></a></li>
+      <% }); %>
+    </ul>
+  </div>
+
+</nav>

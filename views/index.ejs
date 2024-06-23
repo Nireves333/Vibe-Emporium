@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <!-- Display villager greeting -->
+  <div class="container-greeting">
+    
+    <img src="<%= villagerImage %>" alt="<%= villagerName %>">
+    
+    <div class="greeting">
+      Hey, I'm <%= villagerName %>! 
+      I am here to help you select furniture!
+      <br>
+      Let's start by choosing a furniture category, series, or set!
+    </div>
+      
+  </div>
+  
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

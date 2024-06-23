@@ -1,0 +1,65 @@
+<nav class="nav sticky-top justify-content-end">
+  
+  <!-- Home link -->
+  <li class="nav-item">
+    <a class="nav-link" href="/">
+      <div class="input-group">
+        <img src="/assets/icon_home.png" alt="Home Icon" 
+          class="d-inline-block align-text-top">
+        <h4>Home</h4>
+      </div>
+    </a>
+  </li>
+  
+  <!-- Villager link -->
+  <li class="nav-item">
+    <a class="nav-link" href="/villagers">
+      <div class="input-group">
+        <img src="/assets/icon_leaf.png" alt="Account Icon" 
+          class="d-inline-block align-text-top">
+        <h4>Villagers</h4>
+      </div>
+    </a>
+  </li>
+  
+  <!-- Account link -->
+  <li class="nav-item">
+    <a class="nav-link" href="/account">
+      <div class="input-group">
+        <img src="/assets/icon_account.png" alt="Account Icon" 
+          class="d-inline-block align-text-top">
+        <h4>Account</h4>
+      </div>
+    </a>
+  </li>
+
+  <!-- Order History link (conditional) -->
+  <li class="nav-item" <% if (!logoutButtonVisible) { %>style="display: none;"<% } %>>
+    <a class="nav-link" href="/orderHistory">
+      <div class="input-group">
+        <img src="/assets/icon_order_history.png" alt="Order History Icon" 
+          class="d-inline-block align-text-top">
+        <h4>Order History</h4>
+      </div>
+    </a>
+  </li>
+
+  <!-- Cart link (conditional) -->
+  <li class="nav-item" <% if (!logoutButtonVisible) { %>style="display: none;"<% } %>>
+    <a class="nav-link" href="/cart">
+      <div class="input-group">
+        <img src="/assets/icon_cart.png" alt="Cart Icon" 
+          class="d-inline-block align-text-top">
+        <h4>Cart</h4>
+      </div>
+    </a>
+  </li>
+
+  <!-- Logout link (conditional) -->
+  <li class="nav-item" id="logoutButton" <% if (!logoutButtonVisible) { %>style="display: none;"<% } %>>
+      <a class="nav-link" href="/logout"><h4>Logout</h4></a>
+  </li>
+  
+</nav>
+
+<h1>Villager's Vibe Emporium</h1>

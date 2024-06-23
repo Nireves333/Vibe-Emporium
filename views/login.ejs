@@ -1,0 +1,56 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2>Login</h2>
+  </div>
+
+  <div id="custom-popup"></div>
+    
+  <div class="container">
+    <p><strong>
+      Login so you can add items to your cart!
+    </strong></p><br>
+    
+    <form method="POST">
+        
+      <!-- Input field for username -->
+      <div class="input-group input-group-lg">
+        <label class="input-group-text" for="username">Username</label>
+        <input class="form-control" type="text" id="usernameInput" name="usernameInput" required>
+      </div><br>
+        
+      <!-- Input field for password -->
+      <div class="input-group input-group-lg">
+        <span class="input-group-text">Password</span>
+        <input class="form-control" type="password" id="passwordInput" name="passwordInput" required>
+      </div><br>
+      
+      <!-- Login button -->
+      <button class="btn btn-light btn-lg loginBtn" type="submit">Login</button>
+      
+    </form>
+    
+    <br><br>
+    <!-- New account link-->
+    <a href="/newAccount">
+      Don't have an account? Let's create one!
+    </a>
+    
+  </div>
+
+  <!-- Error message for failed login -->
+  <% if (loginError) { %>
+    <div class="popup-valid">
+      <img src="/assets/icon_alert.png" alt="Alert Icon">
+      The username or password you entered is incorrect!
+      <button type="button" class="btn-close" onclick=closeBtn()>         </button>
+    </div>
+  <% } %>
+    
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

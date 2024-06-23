@@ -1,0 +1,80 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2><%= selectedCategory %></h2>
+  </div>
+    
+  <div id="custom-popup"></div>
+    
+  <div class="container-cards">
+    <% items.forEach((item, index) => { %>
+      <!-- Start of each card -->
+      <div class="card">
+          
+        <!-- Card image -->
+        <img src="<%= images[index] %>" class="card-img-top" 
+          alt="<%= names[index] %>">
+        <!-- Card title -->
+        <h3 class="card-title"><%= names[index] %></h3>
+        <!-- SKU of the item -->
+        <p class="card-text">SKU <%= items[index] %></p>
+        <!-- Price of the item -->
+        <h4 class="card-text">$<%= prices[index] %>.00</h4>
+          
+        <!-- "Add to Cart" button -->
+        <button class="btn btn-light btn-lg add-btn" 
+          data-sku="<%= items[index] %>" 
+          data-name="<%= names[index] %>" 
+          data-price="<%= prices[index] %>"
+          data-img="<%= images[index] %>"
+          >Add to Cart</button>
+      </div>
+      <!-- End of each card -->
+    <% }); %>
+  </div>
+
+  <!-- Pagination -->
+  <nav class="navbar justify-content-center">
+    <ul class="pagination">
+      
+      <% if (currentPage === 1) { %>
+        <li class="page-item disabled">
+          <span class="page-link">&laquo;</span>
+        </li>
+      <% } else { %>
+        <li class="page-item">
+          <a class="page-link" href="/furniture/<%= selectedCategory %>?page=<%= currentPage - 1 %>">&laquo;</a>
+        </li>
+      <% } %>
+      
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === currentPage) { %>
+          <li class="page-item active">
+            <span class="page-link"><%= i %></span>
+          </li>
+        <% } else { %>
+          <li class="page-item">
+            <a class="page-link" href="/furniture/<%= selectedCategory %>?page=<%= i %>"><%= i %></a>
+          </li>
+        <% } %>
+      <% } %>
+      
+      <% if (currentPage === totalPages) { %>
+        <li class="page-item disabled">
+          <span class="page-link">&raquo;</span>
+        </li>
+      <% } else { %>
+        <li class="page-item">
+          <a class="page-link" href="/furniture/<%= selectedCategory %>?page=<%= currentPage + 1 %>">&raquo;</a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+    
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

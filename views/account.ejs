@@ -1,0 +1,76 @@
+<%- include('partials/header.ejs') %>
+  
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2>Welcome, <%= user.username %>!</h2>
+  </div>
+
+  <div class="container-account">
+    <div class="container">
+      <p><strong>Update your account information!</strong></p><br>
+      
+      <form method="POST" action="/account">
+  
+        <!-- Update field for password -->
+        <div class="input-group input-group-lg">
+          <label class="input-group-text" for="password">Password</label>
+          <input class="form-control" type="password" name="password" value="<%= user.password %>" required>
+        </div><br>
+  
+        <!-- Dropdown for shopping assistants (villager) -->
+        <div class="input-group input-group-lg">
+          <label class="input-group-text" for="villager">
+            Shopping Assistant
+          </label>
+          <select class="form-select" name="villager">
+            <!-- Iterate through the list of villagers -->
+            <% villagers.forEach((villager) => { %>
+              <option value="<%= villager.name %>" <% if (villager.name === user.villager) { %>selected<% } %>>
+                <%= villager.name %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+  
+        <!-- Link to learn more about shopping assistants -->
+        <a href="/villagers">Learn more about shopping assistants!</a>
+        <br><br>
+  
+        <!-- Checkbox for subscription -->
+        <input class="form-check-input input-group-lg" type="checkbox" name="subscribe" <% if (user.subscribe) { %>checked<% } %>>
+        <label class="form-check-label" for="flexCheckChecked">
+            Yes, I want to receive updates!
+        </label>
+        <br><br>
+  
+        <!-- Update button -->
+        <button class="btn btn-light btn-lg">Update Account</button>
+        
+      </form>
+    </div>
+
+    <!-- Display villager and villager quote -->
+    <div class="container-greeting">
+      <img src="<%= villagerImage %>" alt="<%= villagerName %>">
+      <div class="greeting">
+        <%= villagerQuote %>
+      </div>
+    </div>
+          
+  </div>
+
+  <!-- Success message for account update -->
+  <% if (updateSuccess) { %>
+    <div class="popup-valid">
+      <img src="/assets/icon_alert.png" alt="Alert Icon">
+      Your account has been updated!
+      <button type="button" class="btn-close" onclick=closeBtn()>         </button>
+    </div>
+  <% } %>
+      
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>

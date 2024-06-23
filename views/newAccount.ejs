@@ -1,0 +1,83 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+  <%- include('partials/navigation.ejs') %>
+  <%- include('partials/menuFurniture.ejs') %>
+
+  <div class="page-title">
+    <h2>New Account</h2>
+  </div>
+    
+  <div class="container">
+
+    <p><strong>Create an account so you can select a personal shopping assistant, add items to your cart, and keep track of your order history!</strong></p><br>
+    
+    <form method="POST" action="/account/new">
+        
+      <!-- Input field for username -->
+      <div class="input-group input-group-lg">
+        <label class="input-group-text" for="username">
+          Username
+        </label>
+        <input class="form-control" type="text" name="username" required>
+      </div><br>
+        
+      <!-- Input field for password -->
+      <div class="input-group input-group-lg">
+        <label class="input-group-text" for="password">
+          Password
+        </label>
+        <input class="form-control" type="password" name="password" required>
+      </div><br>
+    
+      <!-- Dropdown for shopping assistants (villager) -->
+      <div class="input-group input-group-lg">
+        <label class="input-group-text" for="villager">
+          Shopping Assistant
+        </label>
+        <select class="form-select" name="villager">
+          <!-- Iterate through the list of villagers -->
+          <% villagers.forEach((villager) => { %>
+            <option value="<%=villager.name%>">
+              <%=villager.name%>
+            </option>
+          <% }); %>
+        </select>
+      </div>
+
+      <!-- Link to learn more about shopping assistants -->
+      <a href="/villagers">Learn more about shopping assistants!</a>
+      <br><br>
+    
+      <!-- Checkbox for subscription (checked by default) -->
+      <input class="form-check-input input-group-lg" 
+        type="checkbox" name="subscribe" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Yes, I want to receive updates!
+      </label>
+      <br><br>
+      
+      <!-- Submit button -->
+      <button class="btn btn-light btn-lg">Sign Up</button>
+
+    </form>
+        
+    <!-- Login link-->
+    <br><a href="/login">
+      Already have an account? Login!
+    </a>
+        
+  </div>
+
+  <!-- Error message for when username exists -->
+  <% if (createError) { %>
+    <div class="popup-valid">
+      <img src="/assets/icon_alert.png" alt="Alert Icon">
+      Please choose a different username!
+      <button type="button" class="btn-close" onclick=closeBtn()>         </button>
+    </div>
+  <% } %>
+    
+  <%- include('partials/footer.ejs') %>
+</body>
+</html>
